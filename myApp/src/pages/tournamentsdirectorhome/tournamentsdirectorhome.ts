@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,AlertController} from 'ionic-angular';
+import { NavController, NavParams,AlertController } from 'ionic-angular';
+import { Refereescoreboardwinby1Page} from '../refereescoreboardwinby1/refereescoreboardwinby1';
+import { Refereescoreboardwinby2Page} from '../refereescoreboardwinby2/refereescoreboardwinby2';
+
 /*
-  Generated class for the Page1 page.
+  Generated class for the Tournamentsdirectorhome page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-page1',
-  templateUrl: 'page1.html'
+  selector: 'page-tournamentsdirectorhome',
+  templateUrl: 'tournamentsdirectorhome.html'
 })
-export class Page1Page {
-        shedulecourtList;
+export class TournamentsdirectorhomePage {
+
+  shedulecourtList;
         courtlist;
         MensDoubles4to5;
         MensDoubles5to0;
@@ -28,10 +32,8 @@ export class Page1Page {
         ShedulecourtListArray=[];
         SelectedEventName=null;
         SelectedFormatName=null;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
-
- 
-    PickleBallDetailes={
+	constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
+        PickleBallDetailes={
 
             "CourtsListArray":[{"Id":1,"courtnumber":1,"courtName":"Court1","Selected":false},
                                 {"Id":2,"courtnumber":2,"courtName":"Court2","Selected":false},
@@ -472,7 +474,24 @@ export class Page1Page {
                 obj.EventName=this.Curentshedulecourt.EventName;
                 obj.Referee=this.Curentshedulecourt.RefereeName;
                 obj.TournamentName="Robson Ranch pickleball tournament";
-                obj.GameFormat=this.Curentshedulecourt.ForMate;
+               if(this.Curentshedulecourt.ForMate==="1 to 15 win By 2"){
+                    obj.twopointse=true;
+                    obj.GameFormat='1 to 15';
+                     obj.GameFormatName="1 to 15 win By 2";
+                }else if(this.Curentshedulecourt.ForMate==="1 to 21 win By 2"){
+                    obj.GameFormat='1 to 21';
+                    obj.GameFormatName="1 to 21 win By 2";
+                    obj.twopointse=true;
+                }else{
+                    if(this.Curentshedulecourt.ForMate==="1 to 15"){
+                         obj.GameFormatName="1 to 15 win By 1";
+                    }else if(this.Curentshedulecourt.ForMate==="1 to 21"){
+                        obj.GameFormatName="1 to 21 win By 1";
+                    }else{
+                        obj.GameFormatName="2 Of 3 To 11 win By 2";
+                    }
+                     obj.GameFormat=this.Curentshedulecourt.ForMate;
+                }
                 obj.courtNumber=this.Curentshedulecourt.courtNumber;
                 obj.court=this.Curentshedulecourt.courtName;
                 obj.Event="singles";
@@ -527,7 +546,24 @@ export class Page1Page {
                 obj.TournamentName="Robson Ranch pickleball tournament";
                 obj.EventName=this.Curentshedulecourt.EventName;
                 obj.Referee=this.Curentshedulecourt.RefereeName;
-                obj.GameFormat=this.Curentshedulecourt.ForMate;
+               if(this.Curentshedulecourt.ForMate==="1 to 15 win By 2"){
+                    obj.twopointse=true;
+                    obj.GameFormat='1 to 15';
+                     obj.GameFormatName="1 to 15 win By 2";
+                }else if(this.Curentshedulecourt.ForMate==="1 to 21 win By 2"){
+                    obj.GameFormat='1 to 21';
+                    obj.GameFormatName="1 to 21 win By 2";
+                    obj.twopointse=true;
+                }else{
+                    if(this.Curentshedulecourt.ForMate==="1 to 15"){
+                         obj.GameFormatName="1 to 15 win By 1";
+                    }else if(this.Curentshedulecourt.ForMate==="1 to 21"){
+                        obj.GameFormatName="1 to 21 win By 1";
+                    }else{
+                        obj.GameFormatName="2 Of 3 To 11 win By 2";
+                    }
+                     obj.GameFormat=this.Curentshedulecourt.ForMate;
+                }
                 obj.courtNumber=this.Curentshedulecourt.courtNumber;
                 obj.court=this.Curentshedulecourt.courtName;
                 obj.Event="Doubles";
@@ -544,8 +580,12 @@ export class Page1Page {
     }         
 
     //function for move to score board.
-    //  NextPage(obj){
-    //      let data = obj;
-    //  	this.navCtrl.push(secondPage, data);
-    //  }
+     NextPage(obj){
+       if(obj.twopointse===undefined){
+             this.navCtrl.push(Refereescoreboardwinby1Page, obj);
+         }else{
+            this.navCtrl.push(Refereescoreboardwinby2Page,obj); 
+         }
+     }
+
 }

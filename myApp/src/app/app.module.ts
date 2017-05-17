@@ -2,18 +2,34 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { secondPage} from '../pages/second/second';
+import { Page1Page } from '../pages/page1/page1';
 import { Thirdpage } from '../pages/ThirdPage/third';
 import { ScoreboardQuestionmodalPage } from '../pages/Scoreboard-questionmodal/Scoreboard-questionmodal';
+import{TournamentsPage} from '../pages/Tournaments/Tournaments';
+import{RecmodalhomepagePage} from '../pages/recmodalhomepage/recmodalhomepage';
+import{RecmodalScoreBoardPage} from '../pages/recmodal-score-board/recmodal-score-board';
+import { WinningdeferencepointstwoscoresPage } from '../pages/winningdeferencepointstwoscores/winningdeferencepointstwoscores';
+import{RecmodescoreboardQuestionmodalPage} from '../pages/recmodescoreboard-questionmodal/recmodescoreboard-questionmodal';
+import{TournamentsdirectorhomePage} from '../pages/tournamentsdirectorhome/tournamentsdirectorhome';
+import { Refereescoreboardwinby1Page} from '../pages/refereescoreboardwinby1/refereescoreboardwinby1';
+import { Refereescoreboardwinby2Page} from '../pages/refereescoreboardwinby2/refereescoreboardwinby2';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    secondPage,
+    Page1Page,
     Thirdpage,
-    ScoreboardQuestionmodalPage
+    ScoreboardQuestionmodalPage,
+    TournamentsPage,
+    RecmodalhomepagePage,
+    RecmodalScoreBoardPage,
+    WinningdeferencepointstwoscoresPage,
+    RecmodescoreboardQuestionmodalPage,
+    TournamentsdirectorhomePage,
+    Refereescoreboardwinby1Page,
+     Refereescoreboardwinby2Page
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -22,9 +38,18 @@ import { ScoreboardQuestionmodalPage } from '../pages/Scoreboard-questionmodal/S
   entryComponents: [
     MyApp,
     HomePage,
-    secondPage,
+    Page1Page,
     Thirdpage,
-    ScoreboardQuestionmodalPage
+    ScoreboardQuestionmodalPage,
+    TournamentsPage,
+    RecmodalhomepagePage,
+    RecmodalScoreBoardPage,
+    WinningdeferencepointstwoscoresPage,
+    RecmodescoreboardQuestionmodalPage,
+    TournamentsdirectorhomePage,
+    Refereescoreboardwinby1Page,
+     Refereescoreboardwinby2Page
+    
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
